@@ -1,3 +1,3 @@
-import { IMovieBanner } from './Movie';
+import { IMovieBanner, IMovie } from './Movie';
 
-export type { IMovieBanner };
+export type { IMovieBanner, IMovie };

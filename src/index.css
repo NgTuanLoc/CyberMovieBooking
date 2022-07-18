@@ -14,15 +14,15 @@ code {
 
 /* Global Style */
 :root {
-	--clr-background: #f28ab2;
-	--clr-paragraph: #627e99
+	--transition: all 0.5s linear;
+	--clr-background: pink;
+	--clr-paragraph: #627e99;
 	--spacing: 0.1rem;
-	--radius: 0.25rem;
+	--radius: 0.35rem;
 	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 	--dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 	--max-width: 1170px;
 	--fixed-width: 450px;
-	--transition: all 0.3s linear;
 }
 
 html {
@@ -41,6 +41,7 @@ body {
 	line-height: 1.5;
 	background: var(--clr-background);
 	font-size: 2rem;
+	overflow-x: hidden;
 }
 
 /* Typography */

@@ -1,16 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getMovieBanner } from './movieThunk';
+import { getMovieBanner, getMovieList } from './movieThunk';
 
-import { IMovieBanner } from '../../@types';
-interface IMovie {
+import { IMovieBanner, IMovie } from '../../@types';
+interface IMovieSlice {
 	isLoading: boolean;
 	movieBanner: IMovieBanner[];
+	movieList: IMovie[];
 	error: any;
 }
 
-const initialState: IMovie = {
+const initialState: IMovieSlice = {
 	isLoading: false,
 	movieBanner: [],
+	movieList: [],
 	error: '',
 };
 
@@ -34,6 +36,16 @@ export const counterSlice = createSlice({
 				state.movieBanner = payload;
 			})
 			.addCase(getMovieBanner.rejected, (state, { payload }) => {
+				state.error = payload;
+			})
+			.addCase(getMovieList.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(getMovieList.fulfilled, (state, { payload }) => {
+				state.isLoading = false;
+				state.movieList = payload;
+			})
+			.addCase(getMovieList.rejected, (state, { payload }) => {
 				state.error = payload;
 			});
 	},
