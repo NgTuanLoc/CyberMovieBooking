@@ -7,7 +7,7 @@ const Banner = ({ hinhAnh }: IMovieBanner) => {
 
 const Container = styled.img`
 	width: 100%;
-	height: 85rem;
+	height: 100vh;
 	object-fit: cover;
 `;
 

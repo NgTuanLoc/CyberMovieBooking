@@ -35,7 +35,7 @@ const Container = styled.div`
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-
+	margin-bottom: 5rem;
 	* {
 		min-height: 0;
 		min-width: 0;

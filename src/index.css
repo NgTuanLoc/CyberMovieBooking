@@ -23,6 +23,7 @@ code {
 	--dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 	--max-width: 1170px;
 	--fixed-width: 450px;
+	--spacing: 2px;
 }
 
 html {

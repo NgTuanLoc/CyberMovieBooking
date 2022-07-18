@@ -25,16 +25,16 @@ const Home = () => {
 	return (
 		<Container>
 			<Carousel carouselItem={movieBanner} />
-			{/* <MovieList movieList={movieList} /> */}
+			<MovieList movieList={movieList} />
 		</Container>
 	);
 };
 
 const Container = styled.main`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+	* {
+		min-height: 0;
+		min-width: 0;
+	}
 `;
 
 export default Home;
