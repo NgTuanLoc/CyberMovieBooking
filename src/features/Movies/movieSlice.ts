@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getMovieBanner } from './movieThunk';
 
-import { axiosInstance, IAxiosParams } from '../../utils/axios';
-
+import { IMovieBanner } from '../../@types';
 interface IMovie {
 	isLoading: boolean;
-	movieBanner: any;
+	movieBanner: IMovieBanner[];
 	error: any;
 }
 
@@ -14,20 +14,8 @@ const initialState: IMovie = {
 	error: '',
 };
 
-export const getMovieBanner = createAsyncThunk<any, IAxiosParams>(
-	'movie/getMovieBanner',
-	async (params, thunkAPI) => {
-		try {
-			const response = await axiosInstance.request(params);
-			return response.data;
-		} catch (error) {
-			return thunkAPI.rejectWithValue(error);
-		}
-	}
-);
-
 export const counterSlice = createSlice({
-	name: 'counter',
+	name: 'movie',
 	initialState,
 	// The `reducers` field lets us define reducers and generate associated actions
 	reducers: {
