@@ -1,20 +1,27 @@
 import styled from 'styled-components';
 import { BsPlayCircle } from 'react-icons/bs';
 
+import { useAppDispatch } from '../app/hooks';
+import { showTrailer } from '../features/Movies/movieSlice';
+
 export interface ICard {
 	image: string;
 	link1: string;
-	link2?: string;
+	link2?: number;
 	title: string;
 	chairId?: string;
 }
 
 const Card = ({ image, link1, link2, title, chairId = 'C18' }: ICard) => {
+	const dispatch = useAppDispatch();
+
 	return (
 		<Container>
 			<div className='wrapper'>
 				<img src={image} alt={title} />
-				<div className='show-trailer'>
+				<div
+					className='show-trailer'
+					onClick={() => dispatch(showTrailer(link1))}>
 					<BsPlayCircle />
 				</div>
 				<div className='info'>

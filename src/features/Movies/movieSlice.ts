@@ -6,6 +6,7 @@ interface IMovieSlice {
 	isLoading: boolean;
 	movieBanner: IMovieBanner[];
 	movieList: IMovie[];
+	trailerPopup: { isOpen: boolean; url: string };
 	error: any;
 }
 
@@ -13,16 +14,24 @@ const initialState: IMovieSlice = {
 	isLoading: false,
 	movieBanner: [],
 	movieList: [],
+	trailerPopup: {
+		isOpen: false,
+		url: 'https://www.youtube.com/watch?v=QT-tIjW88d0',
+	},
 	error: '',
 };
 
-export const counterSlice = createSlice({
+export const movieSlice = createSlice({
 	name: 'movie',
 	initialState,
 	// The `reducers` field lets us define reducers and generate associated actions
 	reducers: {
-		hello: () => {
-			console.log('Hello');
+		showTrailer: (state: IMovieSlice, action: PayloadAction<string>) => {
+			state.trailerPopup.isOpen = true;
+			state.trailerPopup.url = action.payload;
+		},
+		hideTrailer: (state: IMovieSlice) => {
+			state.trailerPopup.isOpen = false;
 		},
 	},
 	extraReducers: (builder) => {
@@ -51,4 +60,6 @@ export const counterSlice = createSlice({
 	},
 });
 
-export default counterSlice.reducer;
+export const { showTrailer, hideTrailer } = movieSlice.actions;
+
+export default movieSlice.reducer;

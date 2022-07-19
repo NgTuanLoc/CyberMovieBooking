@@ -1,4 +1,4 @@
-import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
+// import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { IMovie } from '../@types';
 import Card from './Card';
+import { VideoModal } from '../components';
 export interface IMovieList {
 	movieList: IMovie[];
 }
@@ -24,6 +25,7 @@ const MovieList = ({ movieList }: IMovieList) => {
 
 	return (
 		<Container>
+			<VideoModal />
 			<Content {...settings}>
 				{movieList.map((movie) => {
 					const { maPhim, tenPhim, trailer, hinhAnh } = movie;
@@ -32,6 +34,7 @@ const MovieList = ({ movieList }: IMovieList) => {
 							key={maPhim}
 							image={hinhAnh}
 							link1={trailer}
+							link2={maPhim}
 							title={tenPhim}
 						/>
 					);
