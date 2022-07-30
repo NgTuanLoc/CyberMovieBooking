@@ -16,7 +16,7 @@ const MovieList = ({ movieList }: IMovieList) => {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: 4,
+		slidesToShow: 3,
 		rows: 2,
 		slidesToScroll: 1,
 		arrows: true,
@@ -56,22 +56,6 @@ const Container = styled.section`
 const Content = styled(Slider)`
 	width: 100%;
 	height: 100%;
-
-	button {
-		width: 40px;
-		height: 40px;
-	}
-
-	.slick-prev {
-		left: -8rem;
-	}
-	.slick-next {
-		right: -7rem;
-	}
-
-	button::before {
-		font-size: 5rem;
-	}
 `;
 
 export default MovieList;

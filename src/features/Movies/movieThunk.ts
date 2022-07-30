@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IMovie, IMovieBanner } from '../../@types';
+import { IMovie, IMovieBanner, CinemaBrand } from '../../@types';
 
 import { axiosInstance } from '../../utils/axios';
 
@@ -30,6 +30,23 @@ export const getMovieList = createAsyncThunk<IMovie[]>(
 			};
 
 			const response = await axiosInstance.request(params);
+			return response.data.content;
+		} catch (error: any) {
+			return thunkAPI.rejectWithValue(error.response.statusText);
+		}
+	}
+);
+
+export const getMovieShowTime = createAsyncThunk<CinemaBrand[]>(
+	'movie/getShowtime',
+	async (_, thunkAPI) => {
+		try {
+			const params = {
+				method: 'GET',
+				url: `/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${process.env.REACT_APP_GROUP_ID}`,
+			};
+			const response = await axiosInstance.request(params);
+
 			return response.data.content;
 		} catch (error: any) {
 			return thunkAPI.rejectWithValue(error.response.statusText);

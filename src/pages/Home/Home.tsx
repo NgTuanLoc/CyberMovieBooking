@@ -4,8 +4,9 @@ import styled from 'styled-components';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { getMovieBanner, getMovieList } from '../../features/Movies/movieThunk';
+import { getMovieShowTime } from '../../features/Cinema/cinemaThunk';
 
-import { Carousel, MovieList, Loading } from '../../components';
+import { Carousel, MovieList, Loading, HomeMenu } from '../../components';
 
 const Home = () => {
 	const dispatch = useAppDispatch();
@@ -16,6 +17,7 @@ const Home = () => {
 	useEffect(() => {
 		dispatch(getMovieBanner());
 		dispatch(getMovieList());
+		dispatch(getMovieShowTime());
 	}, []);
 
 	if (isLoading) {
@@ -26,6 +28,7 @@ const Home = () => {
 		<Container>
 			<Carousel carouselItem={movieBanner} />
 			<MovieList movieList={movieList} />
+			<HomeMenu />
 		</Container>
 	);
 };

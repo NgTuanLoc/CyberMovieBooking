@@ -99,6 +99,7 @@ const Container = styled.article`
 	}
 
 	.booking {
+		font-size: 2rem;
 		display: flex;
 		justify-content: center;
 		font-weight: bold;

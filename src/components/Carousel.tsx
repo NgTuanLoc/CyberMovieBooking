@@ -19,6 +19,9 @@ const Carousel = ({ carouselItem }: ICarousel) => {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 10000,
+		fade: true,
 	};
 	return (
 		<Container>
@@ -53,7 +56,7 @@ const Container = styled.div`
 				font-size: 3rem;
 				margin-inline: 2rem;
 				button::before {
-					font-size: 3rem;
+					font-size: 2.5rem;
 					color: white;
 				}
 			}
